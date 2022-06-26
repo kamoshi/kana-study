@@ -13,6 +13,10 @@ interface KanaEntry {
   obsolete?: boolean;
 }
 
+interface KanaItem extends KanaEntry {
+  romaji: Romaji;
+}
+
 type KanaDict = Record<Romaji, KanaEntry>;
 
 interface GuessEntry {

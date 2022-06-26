@@ -5,9 +5,26 @@
 
   export let mode: ChartMode;
 
-  $: chart = LAYOUT_MAIN.map(row => row.map(id => (id !== null) ? KANA[id] : null));
+  $: chart = LAYOUT_MAIN.map(row => row.map(id => (id !== null) ? { ...KANA[id], romaji: id } as KanaItem : null));
+  $: selected = new Set();
+  
+  function onTileClick(id?: Romaji) {
+    if (!id)
+      return;
+
+    const newSet = new Set(selected);
+    selected = (newSet.has(id))
+      ? (newSet.delete(id), newSet)
+      : (newSet.add(id), newSet);
+  }
   
 </script>
+
+<div>
+  {#each Array.from(selected) as lol}
+    {lol}
+  {/each}
+</div>
 
 <table class="chart-main">
   <tr>
@@ -21,7 +38,7 @@
     <tr>
       {#each row as kana}
         <td>
-          <Tile {kana} {mode} />
+          <Tile {kana} {mode} on:click={() => onTileClick(kana?.romaji)}/>
         </td>
       {/each}
     </tr>
@@ -29,4 +46,7 @@
 </table>
 
 <style lang="scss">
+  .chart-main {
+    border-collapse: collapse;
+  }
 </style>

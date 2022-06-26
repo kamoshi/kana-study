@@ -1,11 +1,12 @@
 <script lang="ts">
   export let kana: KanaEntry | null;
   export let mode: ChartMode;
-  
 </script>
 
 
-<div class="tile" class:empty={!kana}>
+<div class="tile"
+  class:empty={!kana}
+  on:click>
   {#if !kana}
     N/A
   {:else}
