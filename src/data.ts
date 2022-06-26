@@ -1,248 +1,200 @@
 // single source of truth
-const _source = [
-  {
-    romaji: 'a',
+const _source = {
+  a: {
     hira: 'あ',
     kata: 'ア',
   },
-  {
-    romaji: 'i',
+  i: {
     hira: 'い',
     kata: 'イ',
   },
-  {
-    romaji: 'u',
+  u: {
     hira: 'う',
     kata: 'ウ',
   },
-  {
-    romaji: 'e',
+  e: {
     hira: 'え',
     kata: 'エ',
   },
-  {
-    romaji: 'o',
+  o: {
     hira: 'お',
     kata: 'オ',
   },
-  {
-    romaji: 'ka',
+  ka: {
     hira: 'か',
     kata: 'カ',
   },
-  {
-    romaji: 'ki',
+  ki: {
     hira: 'き',
     kata: 'キ',
   },
-  {
-    romaji: 'ku',
+  ku: {
     hira: 'く',
     kata: 'ク',
   },
-  {
-    romaji: 'ke',
+  ke: {
     hira: 'け',
     kata: 'ケ',
   },
-  {
-    romaji: 'ko',
+  ko: {
     hira: 'こ',
     kata: 'コ',
   },
-  {
-    romaji: 'sa',
+  sa: {
     hira: 'さ',
     kata: 'サ',
   },
-  {
-    romaji: 'shi',
+  shi: {
     hira: 'し',
     kata: 'シ',
   },
-  {
-    romaji: 'su',
+  su: {
     hira: 'す',
     kata: 'ス',
   },
-  {
-    romaji: 'se',
+  se: {
     hira: 'せ',
     kata: 'セ',
   },
-  {
-    romaji: 'so',
+  so: {
     hira: 'そ',
     kata: 'ソ',
   },
-  {
-    romaji: 'ta',
+  ta: {
     hira: 'た',
     kata: 'タ',
   },
-  {
-    romaji: 'chi',
+  chi: {
     hira: 'ち',
     kata: 'チ',
   },
-  {
-    romaji: 'tsu',
+  tsu: {
     hira: 'つ',
     kata: 'ツ',
   },
-  {
-    romaji: 'te',
+  te: {
     hira: 'て',
     kata: 'テ',
   },
-  {
-    romaji: 'to',
+  to: {
     hira: 'と',
     kata: 'ト',
   },
-  {
-    romaji: 'na',
+  na: {
     hira: 'な',
     kata: 'ナ',
   },
-  {
-    romaji: 'ni',
+  ni: {
     hira: 'に',
     kata: 'ニ',
   },
-  {
-    romaji: 'nu',
+  nu: {
     hira: 'ぬ',
     kata: 'ヌ',
   },
-  {
-    romaji: 'ne',
+  ne: {
     hira: 'ね',
     kata: 'ネ',
   },
-  {
-    romaji: 'no',
+  no: {
     hira: 'の',
     kata: 'ノ',
   },
-  {
-    romaji: 'ha',
+  ha: {
     hira: 'は',
     kata: 'ハ',
   },
-  {
-    romaji: 'hi',
+  hi: {
     hira: 'ひ',
     kata: 'ヒ',
   },
-  {
-    romaji: 'fu',
+  fu: {
     hira: 'ふ',
     kata: 'フ',
   },
-  {
-    romaji: 'he',
+  he: {
     hira: 'へ',
     kata: 'ヘ',
   },
-  {
-    romaji: 'ho',
+  ho: {
     hira: 'ほ',
     kata: 'ホ',
   },
-  {
-    romaji: 'ma',
+  ma: {
     hira: 'ま',
     kata: 'マ',
   },
-  {
-    romaji: 'mi',
+  mi: {
     hira: 'み',
     kata: 'ミ',
   },
-  {
-    romaji: 'mu',
+  mu: {
     hira: 'む',
     kata: 'ム',
   },
-  {
-    romaji: 'me',
+  me: {
     hira: 'め',
     kata: 'メ',
   },
-  {
-    romaji: 'mo',
+  mo: {
     hira: 'も',
     kata: 'モ',
   },
-  {
-    romaji: 'ya',
+  ya: {
     hira: 'や',
     kata: 'ヤ',
   },
-  {
-    romaji: 'yu',
+  yu: {
     hira: 'ゆ',
     kata: 'ユ',
   },
-  {
-    romaji: 'yo',
+  yo: {
     hira: 'よ',
     kata: 'ヨ',
   },
-  {
-    romaji: 'ra',
+  ra: {
     hira: 'ら',
     kata: 'ラ',
   },
-  {
-    romaji: 'ri',
+  ri: {
     hira: 'り',
     kata: 'リ',
   },
-  {
-    romaji: 'ru',
+  ru: {
     hira: 'る',
     kata: 'ル',
   },
-  {
-    romaji: 're',
+  re: {
     hira: 'れ',
     kata: 'レ',
   },
-  {
-    romaji: 'ro',
+  ro: {
     hira: 'ろ',
     kata: 'ロ',
   },
-  {
-    romaji: 'wa',
+  wa: {
     hira: 'わ',
     kata: 'ワ',
   },
-  {
-    romaji: 'wi',
+  wi: {
     hira: 'ゐ',
     kata: 'ヰ',
     obsolete: true,
   },
-  {
-    romaji: 'we',
+  we: {
     hira: 'ゑ',
     kata: 'ヱ',
     obsolete: true,
   },
-  {
-    romaji: 'wo',
+  wo: {
     hira: 'を',
     kata: 'ヲ',
   },
-  {
-    romaji: 'n',
+  n: {
     hira: 'ん',
     kata: 'ン',
   }
-] as const;
+} as const;
 
 export type SourceOfTruth = typeof _source;
-export const KANA = _source.reduce((acc, next) => (acc[next.romaji] = next, acc), {} as KanaDict);
+export const KANA = _source;

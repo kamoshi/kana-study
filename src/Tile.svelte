@@ -4,19 +4,18 @@
   
 </script>
 
-{#if kana}
-  <div class="tile">
-  {#if mode === 'hiragana'}
-    {kana.hira}
-  {:else if mode = 'katakana'}
-    {kana.kata}
-  {/if}
-  </div>
-{:else}
-  <div class="tile empty">
+
+<div class="tile" class:empty={!kana}>
+  {#if !kana}
     N/A
-  </div>
-{/if}
+  {:else}
+    {#if mode === 'hiragana'}
+      {kana.hira}
+    {:else}
+      {kana.kata}
+    {/if}
+  {/if}
+</div>
 
 <style lang="scss">
   .empty {
