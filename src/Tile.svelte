@@ -1,6 +1,6 @@
 <script lang="ts">
   export let kana: KanaEntry | null;
-  export let mode: ChartMode;
+  export let mode: DisplayMode;
 </script>
 
 
@@ -11,9 +11,9 @@
     N/A
   {:else}
     {#if mode === 'hiragana'}
-      {kana.hira}
+      {kana.hiragana}
     {:else}
-      {kana.kata}
+      {kana.katakana}
     {/if}
   {/if}
 </div>

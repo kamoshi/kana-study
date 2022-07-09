@@ -1,15 +1,17 @@
 /// <reference types="svelte" />
 
+type DisplayMode = 'hiragana' | 'katakana';
+
 type SourceOfTruth = import('./data').SourceOfTruth;
 
 type Romaji = keyof SourceOfTruth;
-type Hiragana = SourceOfTruth[Romaji]['hira']
-type Katakana = SourceOfTruth[Romaji]['kata']
+type Hiragana = SourceOfTruth[Romaji]['hiragana']
+type Katakana = SourceOfTruth[Romaji]['katakana']
 type Kana = Hiragana | Katakana;
 
 interface KanaEntry {
-  hira: Hiragana;
-  kata: Katakana;
+  hiragana: Hiragana;
+  katakana: Katakana;
   obsolete?: boolean;
 }
 
@@ -25,5 +27,3 @@ interface GuessEntry {
 }
 
 type GuessDict = Record<Kana, GuessEntry>;
-
-type ChartMode = 'hiragana' | 'katakana';

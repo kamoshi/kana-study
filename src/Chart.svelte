@@ -3,7 +3,7 @@
   import { KANA } from "./data";
   import Tile from "./Tile.svelte";
 
-  export let mode: ChartMode;
+  export let mode: DisplayMode;
 
   $: chart = LAYOUT_MAIN.map(row => row.map(id => (id !== null) ? { ...KANA[id], romaji: id } as KanaItem : null));
   $: selected = new Set();
