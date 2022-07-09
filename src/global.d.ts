@@ -1,6 +1,6 @@
 /// <reference types="svelte" />
 
-type DisplayMode = 'hiragana' | 'katakana';
+type QuizMode = 'hiragana' | 'katakana';
 
 type SourceOfTruth = import('./data').SourceOfTruth;
 
@@ -27,3 +27,22 @@ interface GuessEntry {
 }
 
 type GuessDict = Record<Kana, GuessEntry>;
+type GuessEvent = string;
+
+
+// QUIZ ACTIONS
+
+interface SkipAction {
+  type: 'skip';
+  mode: QuizMode;
+  kana: KanaItem;
+}
+
+interface GuessAction {
+  type: 'guess';
+  mode: QuizMode;
+  kana: KanaItem;
+  guess: string;
+}
+
+type QuizAction = GuessAction | SkipAction;

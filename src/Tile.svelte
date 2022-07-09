@@ -1,6 +1,6 @@
 <script lang="ts">
   export let kana: KanaEntry | null;
-  export let mode: DisplayMode;
+  export let mode: QuizMode;
 </script>
 
 
