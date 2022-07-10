@@ -9,39 +9,40 @@ type Hiragana = SourceOfTruth[Romaji]['hiragana']
 type Katakana = SourceOfTruth[Romaji]['katakana']
 type Kana = Hiragana | Katakana;
 
-interface KanaEntry {
+type KanaEntry = {
   hiragana: Hiragana;
   katakana: Katakana;
   obsolete?: boolean;
 }
 
-interface KanaItem extends KanaEntry {
+type KanaDict = Record<Romaji, KanaEntry>;
+
+/** Object representing a singular kana within the syllabary */
+type KanaItem = KanaEntry & {
   romaji: Romaji;
 }
 
-type KanaDict = Record<Romaji, KanaEntry>;
-
-interface GuessEntry {
+type GuessEntry = {
   correct: number;
   total: number;
 }
 
 type GuessDict = Record<Kana, GuessEntry>;
-type GuessEvent = string;
 
 
 // QUIZ ACTIONS
 
-interface SkipAction {
+type SkipAction = {
   type: 'skip';
   mode: QuizMode;
   kana: KanaItem;
 }
 
-interface GuessAction {
+type GuessAction = {
   type: 'guess';
   mode: QuizMode;
   kana: KanaItem;
+  // String guessed by user (should be Romaji, but we don't know what the user will enter)
   guess: string;
 }
 

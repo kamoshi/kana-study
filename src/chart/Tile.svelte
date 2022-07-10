@@ -7,9 +7,7 @@
 <div class="tile"
   class:empty={!kana}
   on:click>
-  {#if !kana}
-    N/A
-  {:else}
+  {#if kana}
     {#if mode === 'hiragana'}
       {kana.hiragana}
     {:else}
@@ -20,6 +18,6 @@
 
 <style lang="scss">
   .empty {
-    background-color: lightgray;
+    background-color: #e6e6e6;
   }
 </style>

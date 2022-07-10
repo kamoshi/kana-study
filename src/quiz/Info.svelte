@@ -1,25 +1,24 @@
 <script lang="ts">
   export let action: QuizAction;
-  
-  $: kana = action.kana[action.mode];
 </script>
 
 
 {#if action.type === 'guess'}
-  {#if action.guess === kana}
+  {#if action.guess === action.kana.romaji}
   <div class="info correct">
-    You guessed correct! The kana for {action.kana.romaji} is indeed {kana}.
+    You guessed correct! The romaji for {action.kana[action.mode]} is indeed {action.kana.romaji}.
   </div>
   {:else}
   <div class="info wrong">
-    You guessed wrong... The kana for {action.kana.romaji} is not "{action.guess}", it is {kana}.
+    You guessed wrong... The romaji for {action.kana[action.mode]} is not "{action.guess}", it is {action.kana.romaji}.
   </div>
   {/if}
 {:else if action.type === 'skip'}
   <div class="info other">
-    You skipped {action.kana.romaji}. The correct answer was {kana}!
+    You skipped {action.kana[action.mode]}. The correct answer was {action.kana.romaji}!
   </div>
 {/if}
+
 
 <style lang="scss">
   .info {

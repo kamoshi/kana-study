@@ -5,47 +5,54 @@ import Info from "./Info.svelte";
   const dispatch = createEventDispatcher<{ action: QuizAction }>();
   export let mode: QuizMode;
   export let kana: KanaItem;
-  
+  $: target = kana[mode];
+
   let input = '';
   let lastAction: QuizAction | undefined;
 
   function onCheck() {
+    if (input.length === 0) return;
     const action: GuessAction = { type: 'guess', kana, mode, guess: input };
-    lastAction = { ...action };
+    [input, lastAction] = ['', { ...action }];
     dispatch('action', action);
   }
 
   function onSkip() {
     const action: SkipAction = { type: 'skip', kana, mode };
-    lastAction = { ...action };
+    [input, lastAction] = ['', { ...action }];
     dispatch('action', action);
   }
 </script>
 
-<section class="card">
+
+<form class="card" on:submit|preventDefault={onCheck}>
   {#if !!lastAction}
     <Info action={lastAction} />
   {/if}
 
   <div class="bigger">
-    {kana.romaji}
+    {target}
   </div>
   <div>
-    <label for="guess-input">Please enter text in {mode}</label>
-    <input id="guess-input" type="text" bind:value={input}>
+    <label for="guess-input">Please the romaji below</label>
+    <input id="guess-input" type="text" autocomplete="off" bind:value={input}>
   </div>
 
-  <button on:click={onCheck}>Check</button>
-  <button on:click={onSkip}>Skip</button>
-</section>
+  <div class="button">
+    <button type="button" on:click={onSkip}>Skip</button>
+    <button type="submit" on:click={onCheck}>Check</button>
+  </div>
+</form>
+
 
 <style lang="scss">
-  section {
+  form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 1em;
   }
   .bigger {
-    font-size: 3em;
+    font-size: 5em;
   }
 </style>
