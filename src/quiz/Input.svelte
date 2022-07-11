@@ -34,7 +34,7 @@ import Info from "./Info.svelte";
     {target}
   </div>
   <div>
-    <label for="guess-input">Please the romaji below</label>
+    <label for="guess-input">Please enter the romaji below</label>
     <input id="guess-input" type="text" autocomplete="off" bind:value={input}>
   </div>
 

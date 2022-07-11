@@ -2,9 +2,10 @@
 import Chart from "./chart/Chart.svelte";
 import Quiz from "./quiz/Quiz.svelte";
 import { KANA } from "./data";
-import Results from "./quiz/Results.svelte";
+import Results from "./results/Results.svelte";
 import { history, state } from "./state";
-import { onDestroy } from "svelte";
+import { onDestroy, onMount } from "svelte";
+import { storage } from "./storage";
 
 	let currentState: AppState = 'select';
 	let currentHistory: QuizAction[] = [];
@@ -17,13 +18,17 @@ import { onDestroy } from "svelte";
 		const romaji = $event.detail.romaji;
 		const newSet = new Set(selected);
 		newSet.has(romaji) ? newSet.delete(romaji) : newSet.add(romaji);
-		selected = newSet;
+		storage.saveSelected((selected = newSet, selected));
 	}
 
 	function onStart() {
 		history.set([]);
 		state.set('quiz');
 	}
+
+	onMount(() => {
+		selected = storage.loadSelected();
+	})
 
 	const unsubState = state.subscribe(newState => currentState = newState);
 	const unsubHistory = history.subscribe(newHistory => currentHistory = newHistory);

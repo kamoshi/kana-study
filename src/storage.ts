@@ -1,20 +1,16 @@
 import { KANA } from "./data";
 
 
-const storageKey = 'guesses';
+class StorageService {
 
-
-export class StorageService {
-
-  save(data: GuessDict) {
-    localStorage.setItem(storageKey, JSON.stringify(data));
+  saveSelected(selected: Set<Romaji>) {
+    localStorage.setItem('selected', JSON.stringify(Array.from(selected)));
   }
 
-  load(): GuessDict {
-    const data = localStorage.getItem(storageKey);
-    return (!!data) ? JSON.parse(data) : generateDict();
+  loadSelected(): Set<Romaji> {
+    const data = localStorage.getItem('selected');
+    return new Set((data) ? JSON.parse(data) : []);
   }
-  
 }
 
 function generateDict(): GuessDict {
@@ -22,3 +18,5 @@ function generateDict(): GuessDict {
     .reduce((acc, next) => (acc.push(next.hiragana), acc.push(next.katakana), acc), [] as Kana[])
     .reduce((acc, next) => (acc[next] = { correct: 0, total: 0 }, acc), {} as GuessDict);
 }
+
+export const storage = new StorageService();

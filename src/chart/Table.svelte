@@ -17,7 +17,7 @@ import { KANA } from "../data";
       <tr>
         {#each row as kana}
           {#if kana}
-            <td class:selected={selected.has(kana.romaji)} >
+            <td class="selectable" class:selected={selected.has(kana.romaji)} >
               <div on:click={() => dispatch('select', kana)}>
                 {#if mode === 'hiragana'}
                   {kana.hiragana}
@@ -36,12 +36,23 @@ import { KANA } from "../data";
 </table>
 
 <style lang="scss">
+  table {
+    margin: 1em;
+    padding: 0.5em;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
   td {
     border: 1px solid transparent;
 
-    &:hover {
-      border: 1px solid lightgray;
+    &.selectable {
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid lightgray;
+      }
     }
+
     &.selected {
       background-color: lightgreen;
     }
