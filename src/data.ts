@@ -1,5 +1,6 @@
 // single source of truth
 const _source = {
+  // Monographs
   a: {
     hiragana: 'あ',
     katakana: 'ア',
@@ -194,11 +195,277 @@ const _source = {
     hiragana: 'を',
     katakana: 'ヲ',
   },
-  n: {
+  nn: {
     hiragana: 'ん',
     katakana: 'ン',
-    alias: ['nn'],
-  }
+    alias: ['n'],
+  },
+
+  // Digraphs
+  kya: {
+    hiragana: 'きゃ',
+    katakana: 'キャ',
+  },
+  kyu: {
+    hiragana: 'きゅ',
+    katakana: 'キュ',
+  },
+  kyo: {
+    hiragana: 'きょ',
+    katakana: 'キョ',
+  },
+  sya: {
+    hiragana: 'しゃ',
+    katakana: 'シャ',
+    alias: ['sha'],
+  },
+  syu: {
+    hiragana: 'しゅ',
+    katakana: 'シュ',
+    alias: ['shu'],
+  },
+  syo: {
+    hiragana: 'しょ',
+    katakana: 'ショ',
+    alias: ['sho'],
+  },
+  tya: {
+    hiragana: 'ちゃ',
+    katakana: 'チャ',
+    alias: ['cha'],
+  },
+  tyu: {
+    hiragana: 'ちゅ',
+    katakana: 'チュ',
+    alias: ['chu'],
+  },
+  tyo: {
+    hiragana: 'ちょ',
+    katakana: 'チョ',
+    alias: ['cho'],
+  },
+  nya: {
+    hiragana: 'にゃ',
+    katakana: 'ニャ',
+  },
+  nyu: {
+    hiragana: 'にゅ',
+    katakana: 'ニュ',
+  },
+  nyo: {
+    hiragana: 'にょ',
+    katakana: 'ニョ',
+  },
+  hya: {
+    hiragana: 'ひゃ',
+    katakana: 'ヒャ',
+  },
+  hyu: {
+    hiragana: 'ひゅ',
+    katakana: 'ヒュ',
+  },
+  hyo: {
+    hiragana: 'ひょ',
+    katakana: 'ヒョ',
+  },
+  mya: {
+    hiragana: 'みゃ',
+    katakana: 'ミャ',
+  },
+  myu: {
+    hiragana: 'みゅ',
+    katakana: 'ミュ',
+  },
+  myo: {
+    hiragana: 'みょ',
+    katakana: 'ミョ',
+  },
+  rya: {
+    hiragana: 'りゃ',
+    katakana: 'リャ',
+  },
+  ryu: {
+    hiragana: 'りゅ',
+    katakana: 'リュ',
+  },
+  ryo: {
+    hiragana: 'りょ',
+    katakana: 'リョ',
+  },
+
+  // Diacritics
+  ga: {
+    hiragana: 'が',
+    katakana: 'ガ',
+  },
+  gi: {
+    hiragana: 'ぎ',
+    katakana: 'ギ',
+  },
+  gu: {
+    hiragana: 'ぐ',
+    katakana: 'グ',
+  },
+  ge: {
+    hiragana: 'げ',
+    katakana: 'ゲ',
+  },
+  go: {
+    hiragana: 'ご',
+    katakana: 'ゴ',
+  },
+  za: {
+    hiragana: 'ざ',
+    katakana: 'ザ',
+  },
+  zi: {
+    hiragana: 'じ',
+    katakana: 'ジ',
+    alias: ['ji'],
+  },
+  zu: {
+    hiragana: 'ず',
+    katakana: 'ズ',
+  },
+  ze: {
+    hiragana: 'ぜ',
+    katakana: 'ゼ',
+  },
+  zo: {
+    hiragana: 'ぞ',
+    katakana: 'ゾ',
+  },
+  da: {
+    hiragana: 'だ',
+    katakana: 'ダ',
+  },
+  di: {
+    hiragana: 'ぢ',
+    katakana: 'ヂ',
+    alias: ['ji'],
+  },
+  du: {
+    hiragana: 'づ',
+    katakana: 'ヅ',
+    alias: ['zu', 'dzu'],
+  },
+  de: {
+    hiragana: 'で',
+    katakana: 'デ',
+  },
+  do: {
+    hiragana: 'ど',
+    katakana: 'ド',
+  },
+  ba: {
+    hiragana: 'ば',
+    katakana: 'バ',
+  },
+  bi: {
+    hiragana: 'び',
+    katakana: 'ビ',
+  },
+  bu: {
+    hiragana: 'ぶ',
+    katakana: 'ブ',
+  },
+  be: {
+    hiragana: 'べ',
+    katakana: 'ベ',
+  },
+  bo: {
+    hiragana: 'ぼ',
+    katakana: 'ボ',
+  },
+  pa: {
+    hiragana: 'ぱ',
+    katakana: 'パ',
+  },
+  pi: {
+    hiragana: 'ぴ',
+    katakana: 'ピ',
+  },
+  pu: {
+    hiragana: 'ぷ',
+    katakana: 'プ',
+  },
+  pe: {
+    hiragana: 'ぺ',
+    katakana: 'ぺ',
+  },
+  po: {
+    hiragana: 'ぽ',
+    katakana: 'ポ',
+  },
+
+  // Digraphs with diacritics
+  gya: {
+    hiragana: 'ぎゃ',
+    katakana: 'ギャ',
+  },
+  gyu: {
+    hiragana: 'ぎゅ',
+    katakana: 'ギュ',
+  },
+  gyo: {
+    hiragana: 'ぎょ',
+    katakana: 'ギョ',
+  },
+  zya: {
+    hiragana: 'じゃ',
+    katakana: 'ジャ',
+    alias: ['ja'],
+  },
+  zyu: {
+    hiragana: 'じゅ',
+    katakana: 'ジュ',
+    alias: ['ju'],
+  },
+  zyo: {
+    hiragana: 'じょ',
+    katakana: 'ジョ',
+    alias: ['jo'],
+  },
+  dya: {
+    hiragana: 'ぢゃ',
+    katakana: 'ヂャ',
+    alias: ['ja', 'dja'],
+  },
+  dyu: {
+    hiragana: 'ぢゅ',
+    katakana: 'ヂュ',
+    alias: ['ju', 'dju'],
+  },
+  dyo: {
+    hiragana: 'ぢょ',
+    katakana: 'ヂョ',
+    alias: ['jo', 'djo'],
+  },
+  bya: {
+    hiragana: 'びゃ',
+    katakana: 'ビャ',
+  },
+  byu: {
+    hiragana: 'びゅ',
+    katakana: 'ビュ',
+  },
+  byo: {
+    hiragana: 'びょ',
+    katakana: 'ビョ',
+  },
+  pya: {
+    hiragana: 'ぴゃ',
+    katakana: 'ピャ',
+  },
+  pyu: {
+    hiragana: 'ぴゅ',
+    katakana: 'ピュ',
+  },
+  pyo: {
+    hiragana: 'ぴょ',
+    katakana: 'ピョ',
+  },
+
 } as const;
 
 export type SourceOfTruth = typeof _source;
