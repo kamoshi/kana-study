@@ -47,6 +47,7 @@ const _source = {
   shi: {
     hiragana: 'し',
     katakana: 'シ',
+    alias: ['si'],
   },
   su: {
     hiragana: 'す',
@@ -67,10 +68,12 @@ const _source = {
   chi: {
     hiragana: 'ち',
     katakana: 'チ',
+    alias: ['ti'],
   },
   tsu: {
     hiragana: 'つ',
     katakana: 'ツ',
+    alias: ['tu'],
   },
   te: {
     hiragana: 'て',
@@ -111,6 +114,7 @@ const _source = {
   fu: {
     hiragana: 'ふ',
     katakana: 'フ',
+    alias: ['hu'],
   },
   he: {
     hiragana: 'へ',
@@ -193,6 +197,7 @@ const _source = {
   n: {
     hiragana: 'ん',
     katakana: 'ン',
+    alias: ['nn'],
   }
 } as const;
 

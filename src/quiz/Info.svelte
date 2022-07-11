@@ -4,9 +4,9 @@
 
 
 {#if action.type === 'guess'}
-  {#if action.guess === action.kana.romaji}
+  {#if action.guess === action.kana.romaji || action.kana.alias?.includes(action.guess)}
   <div class="info correct">
-    You guessed correct! The romaji for {action.kana[action.mode]} is indeed {action.kana.romaji}.
+    You guessed correct! The romaji for {action.kana[action.mode]} is indeed {action.guess}.
   </div>
   {:else}
   <div class="info wrong">

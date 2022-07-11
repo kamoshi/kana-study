@@ -7,28 +7,31 @@ import Input from "./Input.svelte";
   export let kana: KanaItem[];
 
   let queue = kana.sort(() => Math.random() - 0.5);
-  let current: KanaItem | undefined;
 
   function next(wrap: boolean) {
+    console.log(wrap);
     const newQueue = [...queue];
-    current = newQueue.shift();
+    const current = newQueue.shift();
     queue = (wrap && current) ? [...newQueue, current] : newQueue;
   }
 
   function onAction($event: CustomEvent<QuizAction>) {
     const action = $event.detail;
-    next(action.type === 'guess' && action.guess !== action.kana.romaji);
+    next(
+      action.type === 'guess' &&
+      (action.guess !== action.kana.romaji && !action.kana.alias?.includes(action.guess))
+    );
     history.update(old => [...old, action]);
 
-    if (queue.length === 0 && current === undefined)
+    if (queue.length === 0)
       state.set('results');
   }
 
-  onMount(() => { (!!queue.length) ? next(false) : state.set('results') })
+  onMount(() => { if (!queue.length) state.set('results') })
 </script>
 
-{#if !!current}
-  <Input {mode} kana={current} on:action={onAction} />
+{#if queue.length}
+  <Input {mode} kana={queue[0]} on:action={onAction} />
 {/if}
 
 

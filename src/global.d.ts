@@ -14,6 +14,7 @@ type KanaEntry = {
   hiragana: Hiragana;
   katakana: Katakana;
   obsolete?: boolean;
+  alias?: string[];
 }
 
 type KanaDict = Record<Romaji, KanaEntry>;
