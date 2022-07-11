@@ -1,5 +1,6 @@
 /// <reference types="svelte" />
 
+type AppState = 'select' | 'quiz' | 'results';
 type QuizMode = 'hiragana' | 'katakana';
 
 type SourceOfTruth = import('./data').SourceOfTruth;

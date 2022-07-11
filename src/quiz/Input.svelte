@@ -13,13 +13,13 @@ import Info from "./Info.svelte";
   function onCheck() {
     if (input.length === 0) return;
     const action: GuessAction = { type: 'guess', kana, mode, guess: input };
-    [input, lastAction] = ['', { ...action }];
+    [input, lastAction] = ['', action];
     dispatch('action', action);
   }
 
   function onSkip() {
     const action: SkipAction = { type: 'skip', kana, mode };
-    [input, lastAction] = ['', { ...action }];
+    [input, lastAction] = ['', action];
     dispatch('action', action);
   }
 </script>
