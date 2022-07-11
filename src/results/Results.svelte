@@ -19,9 +19,24 @@ import Action from "./Action.svelte";
       {/each}
     </tbody>
   </table>
-  <button on:click={() => state.set('select')}>Back</button>
+  <div class="buttons">
+    <button on:click={() => state.set('select')}>Back</button>
+  </div>
 </section>
 
 <style lang="scss">
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
 
+    button {
+      min-width: 5em;
+    }
+  }
 </style>

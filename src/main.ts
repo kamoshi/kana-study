@@ -1,10 +1,8 @@
 import App from './App.svelte';
 
-const app = new App({
-	target: document.body,
-	props: {
-		//name: 'world'
-	}
-});
+const target = document.getElementById("root")!;
+//const target = root.attachShadow({ mode: 'open' });
+
+const app = new App({ target });
 
 export default app;

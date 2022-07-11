@@ -43,9 +43,6 @@ import Table from "./Table.svelte";
 <style lang="scss">
   section {
     display: flex;
-
-    .column:first-of-type {
-      margin-right: 3em;
-    }
+    justify-content: center;
   }
 </style>

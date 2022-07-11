@@ -33,12 +33,12 @@ import Info from "./Info.svelte";
   <div class="bigger">
     {target}
   </div>
-  <div>
+  <div class="input-field">
     <label for="guess-input">Please enter the romaji below</label>
     <input id="guess-input" type="text" autocomplete="off" bind:value={input}>
   </div>
 
-  <div class="button">
+  <div class="buttons">
     <button type="button" on:click={onSkip}>Skip</button>
     <button type="submit" on:click={onCheck}>Check</button>
   </div>
@@ -51,8 +51,26 @@ import Info from "./Info.svelte";
     flex-direction: column;
     align-items: center;
     padding: 1em;
-  }
-  .bigger {
-    font-size: 5em;
+
+    .bigger {
+      margin: 1em;
+      font-size: 5em;
+      line-height: 1em;
+    }
+
+    .input-field {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1em;
+
+      label {
+        margin-bottom: 0.5em;
+      }
+    }
+
+    button {
+      min-width: 5em;
+    }
   }
 </style>

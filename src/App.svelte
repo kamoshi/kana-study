@@ -35,18 +35,30 @@ import { storage } from "./storage";
 	onDestroy(() => (unsubState(), unsubHistory()))
 </script>
 
-<main>
+<div>
 	{#if currentState === 'select'}
 		<Chart {mode} {selected} on:select={onSelect} />
-		<button on:click={() => mode = (mode === 'hiragana') ? 'katakana' : 'hiragana'}>Change syllabary</button>
-		<button on:click={onStart}>Start</button>
+		<div class="buttons">
+			<button on:click={() => mode = (mode === 'hiragana') ? 'katakana' : 'hiragana'}>Change syllabary</button>
+			<button on:click={onStart}>Start</button>
+		</div>
 	{:else if currentState === 'quiz'}
 		<Quiz {mode} {kana} />
 	{:else if currentState === 'results'}
 		<Results history={currentHistory} />
 	{/if}
-</main>
+</div>
 
 <style lang="scss">
+	.buttons {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
 
+		button {
+			min-width: 5em;
+			margin-left: 0.25em;
+			margin-right: 0.25em;
+		}
+	}
 </style>
