@@ -9,15 +9,15 @@ import { onDestroy } from "svelte";
 	let currentState: AppState = 'select';
 	let currentHistory: QuizAction[] = [];
 	let mode: QuizMode = 'hiragana';
-	let selection = new Set<Romaji>();
+	let selected = new Set<Romaji>();
 	
-	$: kana = Array.from(selection).map(romaji => ({ ...KANA[romaji], romaji } as KanaItem));
+	$: kana = Array.from(selected).map(romaji => ({ ...KANA[romaji], romaji } as KanaItem));
 
 	function onSelect($event: CustomEvent<KanaItem>) {
 		const romaji = $event.detail.romaji;
-		const newSet = new Set(selection);
+		const newSet = new Set(selected);
 		newSet.has(romaji) ? newSet.delete(romaji) : newSet.add(romaji);
-		selection = newSet;
+		selected = newSet;
 	}
 
 	function onStart() {
@@ -32,7 +32,7 @@ import { onDestroy } from "svelte";
 
 <main>
 	{#if currentState === 'select'}
-		<Chart {mode} selected={kana} on:select={onSelect} />
+		<Chart {mode} {selected} on:select={onSelect} />
 		<button on:click={() => mode = (mode === 'hiragana') ? 'katakana' : 'hiragana'}>Change syllabary</button>
 		<button on:click={onStart}>Start</button>
 	{:else if currentState === 'quiz'}

@@ -45,10 +45,10 @@ const _source = {
     hiragana: 'さ',
     katakana: 'サ',
   },
-  shi: {
+  si: {
     hiragana: 'し',
     katakana: 'シ',
-    alias: ['si'],
+    alias: ['shi'],
   },
   su: {
     hiragana: 'す',
@@ -66,15 +66,15 @@ const _source = {
     hiragana: 'た',
     katakana: 'タ',
   },
-  chi: {
+  ti: {
     hiragana: 'ち',
     katakana: 'チ',
-    alias: ['ti'],
+    alias: ['chi'],
   },
-  tsu: {
+  tu: {
     hiragana: 'つ',
     katakana: 'ツ',
-    alias: ['tu'],
+    alias: ['tsu'],
   },
   te: {
     hiragana: 'て',
@@ -112,10 +112,10 @@ const _source = {
     hiragana: 'ひ',
     katakana: 'ヒ',
   },
-  fu: {
+  hu: {
     hiragana: 'ふ',
     katakana: 'フ',
-    alias: ['hu'],
+    alias: ['fu'],
   },
   he: {
     hiragana: 'へ',

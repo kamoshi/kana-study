@@ -9,6 +9,7 @@ type Romaji = keyof SourceOfTruth;
 type Hiragana = SourceOfTruth[Romaji]['hiragana']
 type Katakana = SourceOfTruth[Romaji]['katakana']
 type Kana = Hiragana | Katakana;
+type Layout = (Romaji | null)[][];
 
 type KanaEntry = {
   hiragana: Hiragana;
